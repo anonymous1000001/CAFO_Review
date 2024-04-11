@@ -1,0 +1,32 @@
+task_name: SpokenArabicDigits
+features_save_dir: SpokenArabicDigits
+validation_cv_num: 0
+
+in_channels: 13
+num_class: 10
+
+optimizer:
+  lr: 0.002
+scheduler: none
+
+
+recurrenceplot:
+  dimension: 1
+  time_delay: 5
+  threshold: distance
+  percentage: 10
+
+
+callbacks:
+  monitor: val_loss 
+  check_val_every_n_epoch: 2
+  max_epochs: 200
+  save_top_k: 1
+  monitor_mode: min
+  patience: 3
+  min_delta: 0.0
+
+
+vit_params:
+  image_size: 65
+  patch_size: 5
